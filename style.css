@@ -1,0 +1,429 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(to bottom,#030712,#0f172a,#1e293b);
+    height:100vh;
+    overflow:hidden;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+}
+
+/* STARS */
+
+#stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+/* FLOATING DECOR */
+
+#floatingDecor{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+}
+
+.float{
+    position:absolute;
+    animation:floatUp 12s linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(110vh);
+    }
+    to{
+        transform:translateY(-150px);
+    }
+}
+
+/* MAIN */
+
+.container{
+    position:relative;
+    z-index:5;
+    width:100%;
+    max-width:900px;
+    padding:20px;
+    text-align:center;
+}
+
+.hidden{
+    display:none;
+}
+
+.screen{
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* COUNTDOWN */
+
+#countdown{
+    font-size:90px;
+    font-weight:bold;
+    margin-top:20px;
+    animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+    50%{
+        transform:scale(1.1);
+    }
+}
+
+/* CAKE */
+
+.cake{
+    position:relative;
+    width:260px;
+    height:250px;
+    margin:auto;
+    animation:cakeFloat 3s ease-in-out infinite;
+}
+
+@keyframes cakeFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+.layer{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    background:
+    linear-gradient(
+        to bottom,
+        #ffb3c6,
+        #ff8fab
+    );
+    border-radius:15px;
+    box-shadow:
+    0 8px 15px rgba(0,0,0,.3);
+}
+
+.layer1{
+    bottom:0;
+    width:240px;
+    height:85px;
+}
+
+.layer2{
+    bottom:70px;
+    width:190px;
+    height:70px;
+}
+
+.layer3{
+    bottom:130px;
+    width:140px;
+    height:60px;
+}
+
+.icing{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:15px;
+    background:black;
+    border-radius:15px;
+}
+
+.icing::after{
+    content:"";
+    position:absolute;
+    top:0%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    width:100%;
+    height:12px;
+
+    background:
+    radial-gradient(circle at 6px, red 6px, transparent 7px)
+    0 0/18px 12px repeat-x;
+}
+
+/* CANDLES */
+
+.candle{
+    position:absolute;
+    width:12px;
+    height:42px;
+    top:-40px;
+    background:
+    repeating-linear-gradient(
+    45deg,
+    white,
+    white 4px,
+    hotpink 4px,
+    hotpink 8px
+    );
+    border-radius:4px;
+}
+
+.flame{
+    position:absolute;
+    width:14px;
+    height:22px;
+    top:-20px;
+    left:-1px;
+    background:gold;
+    border-radius:50%;
+    box-shadow:
+    0 0 15px gold,
+    0 0 30px orange;
+    animation:flicker .5s infinite alternate;
+}
+
+@keyframes flicker{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.15);
+    }
+}
+
+.flame.out{
+    opacity:0;
+    transform:translateY(-20px) scale(.2);
+    transition:1s;
+}
+
+/* BUTTONS */
+
+button{
+    border:none;
+    cursor:pointer;
+    border-radius:30px;
+    padding:12px 24px;
+    font-size:16px;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#blowBtn{
+    margin-top:20px;
+    background:#ff5fa2;
+    color:white;
+}
+
+#openLetterBtn{
+    background:#ffd166;
+}
+
+#blowMessage{
+    margin-top:20px;
+    min-height:30px;
+    font-size:20px;
+}
+
+/* ENVELOPE */
+
+.envelope{
+    width:320px;
+    height:220px;
+    margin:auto;
+    background:#f3dfc5;
+    position:relative;
+    border-radius:12px;
+    overflow:hidden;
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#e8cfb0;
+    clip-path:polygon(0 0,100% 0,50% 60%);
+    transition:1s;
+    transform-origin:top;
+    z-index:2;
+}
+
+.envelope.open .flap{
+    transform:rotateX(180deg);
+}
+
+.letter{
+    position:absolute;
+    width:90%;
+    left:5%;
+    height:180px;
+    bottom:-180px;
+    background:white;
+    color:#333;
+    padding:15px;
+    border-radius:10px;
+    transition:1s;
+    overflow:auto;
+}
+
+.envelope.open .letter{
+    bottom:10px;
+}
+
+#closeLetterBtn{
+    margin-top:15px;
+}
+
+/* POPUP */
+
+.popup{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,.9);
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    z-index:999;
+    width:320px;
+}
+
+.popupButtons{
+    margin-top:20px;
+    position:relative;
+    height:120px;
+}
+
+#yesBtn{
+    background:#ff5fa2;
+    color:white;
+    position:absolute;
+    left:20px;
+}
+
+#noBtn{
+    background:#666;
+    color:white;
+    position:absolute;
+    right:20px;
+}
+
+/* RESULT */
+
+#resultSection{
+    position:fixed;
+    top:20%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:1000;
+}
+
+#resultImage{
+    width:220px;
+    max-width:85vw;
+    transition:.4s;
+}
+
+#resultText{
+    margin-top:15px;
+    font-size:2rem;
+}
+
+/* VISUALIZER */
+
+.visualizer{
+    position:fixed;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:4px;
+}
+
+.visualizer span{
+    width:6px;
+    height:18px;
+    background:white;
+    animation:bars 1s infinite;
+}
+
+.visualizer span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.visualizer span:nth-child(3){
+    animation-delay:.4s;
+}
+
+.visualizer span:nth-child(4){
+    animation-delay:.6s;
+}
+
+.visualizer span:nth-child(5){
+    animation-delay:.8s;
+}
+
+@keyframes bars{
+    0%,100%{
+        height:10px;
+    }
+    50%{
+        height:35px;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+    #countdown{
+        font-size:70px;
+    }
+
+    .cake{
+        transform:scale(.85);
+    }
+
+    .envelope{
+        width:280px;
+    }
+
+    .popup{
+        width:90%;
+    }
+}

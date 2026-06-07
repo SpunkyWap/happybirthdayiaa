@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Mia's Birthday</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- STARS -->
+<div id="stars"></div>
+
+<!-- FLOATING DECORATIONS -->
+<div id="floatingDecor"></div>
+
+<div class="container">
+
+    <!-- COUNTDOWN -->
+    <section id="countdownSection" class="screen">
+        <h1>Happy Birthday</h1>
+        <div id="countdown">5</div>
+    </section>
+
+    <!-- CAKE -->
+    <section id="cakeSection" class="screen hidden">
+
+        <div class="cake">
+
+            <div class="layer layer3">
+                <div class="icing"></div>
+
+                <div class="candle" style="left:25px;">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle" style="left:62px;">
+                    <div class="flame"></div>
+                </div>
+
+                <div class="candle" style="left:99px;">
+                    <div class="flame"></div>
+                </div>
+            </div>
+
+            <div class="layer layer2">
+                <div class="icing"></div>
+            </div>
+
+            <div class="layer layer1">
+                <div class="icing"></div>
+            </div>
+
+        </div>
+
+        <p id="blowMessage"></p>
+
+        <button id="blowBtn">
+            🎂 Blow Candles
+        </button>
+
+    </section>
+
+    <!-- LETTER BUTTON -->
+    <section id="letterButtonSection" class="hidden">
+
+        <button id="openLetterBtn">
+            💌 Open Letter
+        </button>
+
+    </section>
+
+    <!-- LETTER -->
+    <section id="letterSection" class="hidden">
+
+        <div class="envelope" id="envelope">
+
+            <div class="flap"></div>
+
+            <div class="letter">
+
+                <h2>Happy Birthday </h2>
+
+                <!-- EDIT BIRTHDAY MESSAGE HERE -->
+
+                <p>
+                    Happy Birthday! 
+
+                    I hope your day is filled with happiness,
+                    laughter, blessings and unforgettable
+                    memories and I hope your dreams come ture.
+
+                    Thank you for being an amazing person.
+
+                    Enjoy your special day
+                    
+                
+                </p>
+
+                <button id="closeLetterBtn">
+                    Close Letter
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<!-- POPUP -->
+
+<div id="popup" class="popup hidden">
+
+    <h2>Do you like it?</h2>
+
+    <div class="popupButtons">
+
+        <button id="yesBtn">
+            YES 💯
+        </button>
+
+        <button id="noBtn">
+            NO 🙂‍↔️ 
+        </button>
+
+    </div>
+
+</div>
+
+<!-- RESULT -->
+
+<div id="resultSection" class="hidden">
+
+    <!-- REPLACE YES IMAGE HERE -->
+    <!-- REPLACE NO IMAGE HERE -->
+
+    <img id="resultImage"
+    src="no.png"
+    alt="Result">
+
+    <h2 id="resultText"></h2>
+
+</div>
+
+<!-- MUSIC -->
+
+<!-- REPLACE MUSIC FILE HERE -->
+
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- VISUALIZER -->
+
+<div class="visualizer">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
